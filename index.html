@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Q4 Seatwork 1</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<style>
+    body{
+    background-image: url("wow.jpg");
+    background-size: cover;
+    background-position: center;     
+    background-repeat: no-repeat;
+    height: 100vh;                 
+    margin: 0;
+    }
+
+    .loginbox{
+        max-width: 400px;
+        margin: 80px auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 15px;
+    }
+
+    h1{
+        text-align: center;
+    }
+
+    h2{
+        text-align: center;
+        font-weight: 500;
+    }
+
+    p{
+        text-align: center;
+    }
+</style>
+</head>
+
+<body>
+<div class="loginbox">
+    <h1>LOGIN PAGE</h1>
+    <h2>Q4 Seatwork 1</h2>
+    <p>Please enter your username and password.</p>
+    <p> Hint: User = ruby, Password = 1234</p>
+
+    <div class="username">
+        <label class="form-label">Username:</label>
+        <input type="text" id="user" class="form-control">
+    </div>
+
+    <div class="password">
+        <label class="form-label">Password:</label>
+        <input type="password" id="pass" class="form-control">
+    </div>
+
+    <button class="btn btn-danger w-100 mt-3" onclick="login()">Login</button>
+    <p id="message"></p>
+</div>
+
+<script>
+var C_Username = "ruby";
+var C_Password = "1234";
+
+var attempts = 0;
+var maxAttempts = 3;
+
+function login() {
+
+    while(attempts < maxAttempts) {
+
+        var username = document.getElementById("user").value;
+        var password = document.getElementById("pass").value;
+
+        if(username === C_Username && password === C_Password){ 
+            alert("Login successful! Welcome, " + username + "!");
+            break;
+        } 
+        
+        else {
+            attempts++;
+            alert("Invalid username or password. Please try again. Attempt " + attempts + " of " + maxAttempts);
+            break;
+        }
+    }
+
+    if(attempts == maxAttempts){
+        alert("Maximum attempts reached.");
+    }
+}
+</script>
+
+</body>
+</html>
